@@ -12,26 +12,28 @@ def password(request):
     # TODO --> Crear una lista de las letras del abecedario
     characters = list("abcdefghijklmnopqrstuvwxyz")
 
-    # TODO --> Obtener el largo de la contraseña desde el formulario de home y guardarlo en una variable
-    length = int(request.GET.get('length'))
+    if request.GET.get('length'):
 
-    # TODO --> Obtener el valor del checkbox para mayusculas
-    uppercase = request.GET.get('uppercase')
+        # TODO --> Obtener el largo de la contraseña desde el formulario de home y guardarlo en una variable
+        length = int(request.GET.get('length'))
 
-    if uppercase:
-        characters.extend(list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
-    
-    if request.GET.get('special'):
-        characters.extend(list("@#$%&*+-_!?"))
+        # TODO --> Obtener el valor del checkbox para mayusculas
+        uppercase = request.GET.get('uppercase')
 
-    if request.GET.get('numbers'):
-        characters.extend(list("1234567890"))
+        if uppercase:
+            characters.extend(list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"))
+        
+        if request.GET.get('special'):
+            characters.extend(list("@#$%&*+-_!?"))
+
+        if request.GET.get('numbers'):
+            characters.extend(list("1234567890"))
 
 
-    # Recorrer la lista
-    for i in range(length):
+        # Recorrer la lista
+        for i in range(length):
 
-        password += random.choice(characters)
+            password += random.choice(characters)
             
 
     return render(request,"core/password.html", {"password":password})

@@ -4,33 +4,52 @@
 
 {% block contenido %}
 
-<!--La redireccion del formulario según el paráetro name de las rutas-->
-<form  action="{% url 'password' %}">
+<div class="card mx-auto m-4 col-md-6">
+    <div class="card-header text-center bg-primary text-light">
+        Password
+    </div>
+    <div class="card-body">
+        <!--La redireccion del formulario según el paráetro name de las rutas-->
+        <form action="{% url 'password' %}">
 
-    <h1>Password Generator</h1>
 
-    <label for="length">Select the length of your password</label>
-    <select name="length" id="length">
-        <option value="6">6 characters</option>
-        <option value="7">7 characters</option>
-        <option value="8">8 characters</option>
-        <option value="9">9 characters</option>
-        <option value="10">10 characters</option>
-        <option value="11">11 characters</option>
-        <option value="12">12 characters</option>
-    </select>
 
-    <label for="uppercase">Uppercase</label>
-    <input type="checkbox" name="uppercase" id="uppercase">
+            <div class="mb-2">
+                <label for="length">Select the length of your password</label>
+                <select class="form-select" name="length" id="length" aria-label="Default select example">
+                    <option value="6">6 characters</option>
+                    <option value="7">7 characters</option>
+                    <option value="8">8 characters</option>
+                    <option value="9">9 characters</option>
+                    <option value="10">10 characters</option>
+                    <option value="11">11 characters</option>
+                    <option value="12">12 characters</option>
+                </select>
+            </div>
 
-    <label for="special">Special Characters</label>
-    <input type="checkbox" name="special" id="special">
+            <div class="form-check form-switch mb-2">
+                <input class="form-check-input" type="checkbox" id="uppercase" name="uppercase">
+                <label class="form-check-label" for="uppercase">Uppercase</label>
+            </div>
 
-    <label for="numbers">Numbers</label>
-    <input type="checkbox" name="numbers" id="numbers">
+            <div class="form-check form-switch mb-2">
+                <input class="form-check-input" type="checkbox" id="special" name="special">
+                <label class="form-check-label" for="special">Special</label>
+            </div>
 
-    <button>Generate Password</button>
+            <div class="form-check form-switch mb-2">
+                <input class="form-check-input" type="checkbox" id="numbers" name="numbers">
+                <label class="form-check-label" for="numbers">Number</label>
+            </div>
 
-</form>
+            <div class="d-grid gap-2">
+                <button class="btn btn-success" type="submit">Button</button>
+              </div>
+
+        </form>
+    </div>
+</div>
+
+
 
 {% endblock %}
