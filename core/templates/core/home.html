@@ -1,21 +1,22 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
-
+{% block title %}
+<title>Generate Password</title>
+{% endblock %}
 
 {% block contenido %}
 
-<div class="card mx-auto m-4 col-md-6">
-    <div class="card-header text-center bg-primary text-light">
+<div class="card card-contenedor mx-auto m-5 col-md-6">
+    <div class="card-header card-contenedor-header text-center text-light">
         Password
     </div>
-    <div class="card-body">
+    <div class="card-body text-light">
         <!--La redireccion del formulario según el paráetro name de las rutas-->
         <form action="{% url 'password' %}">
 
-
-
             <div class="mb-2">
-                <label for="length">Select the length of your password</label>
+                <label class="" for="length">Select the length of your password</label>
                 <select class="form-select" name="length" id="length" aria-label="Default select example">
                     <option value="6">6 characters</option>
                     <option value="7">7 characters</option>
@@ -42,9 +43,10 @@
                 <label class="form-check-label" for="numbers">Number</label>
             </div>
 
-            <div class="d-grid gap-2">
-                <button class="btn btn-success" type="submit">Button</button>
-              </div>
+            <div class="text-center">
+                <button class="btn btn-info" type="submit">Generate</button>
+            </div>
+
 
         </form>
     </div>
