@@ -2,7 +2,7 @@ from django.shortcuts import render
 import random
 
 def home(request):
-    return render(request,"core/home.html")
+    return render(request,"home.html")
 
 
 def password(request):
@@ -36,9 +36,9 @@ def password(request):
             password += random.choice(characters)
             
 
-    return render(request,"core/password.html", {"password":password})
+    return render(request,"password.html", {"password":password})
 
 
 
 def about(request):
-    return render(request,"core/about.html")
+    return render(request,"about.html")
